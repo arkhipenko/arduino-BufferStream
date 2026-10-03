@@ -1,0 +1,17 @@
+.pio
+.vscode/
+
+# Claude Code and Design Central (local tooling, not part of the library)
+.claude/
+.dc/
+.mcp.json
+CLAUDE.md
+CLAUDE.local.md
+claude-start
+
+# Local scratch folders
+_*/
+
+# Host test binaries and outputs
+tests/host/test_bufferstream
+tests/host/example_*

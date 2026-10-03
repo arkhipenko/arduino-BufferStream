@@ -1,0 +1,5 @@
+id: 17
+temp: -4
+name: probe
+left: 0
+parseInt at end: 0

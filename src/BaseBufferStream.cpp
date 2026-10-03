@@ -1,5 +1,6 @@
 /*
    Copyright (c) 2019 Boot&Work Corp., S.L. All rights reserved
+   Modified 2026 by Anatoli Arkhipenko (see README.md, version history)
 
    This library is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as published by
@@ -18,5 +19,5 @@
 #include "BaseBufferStream.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-BaseBufferStream::BaseBufferStream(void *buff, size_t len) : buff(buff), len(len) {
+BaseBufferStream::BaseBufferStream(void *buff, size_t len) : buff(static_cast<uint8_t *>(buff)), len(len) {
 }

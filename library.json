@@ -1,0 +1,31 @@
+{
+  "name": "BufferStream",
+  "version": "1.1.0",
+  "description": "Read and write a memory buffer through the Arduino Stream interface. ReadBufferStream serves a buffer to Stream parsers; WriteBufferStream collects print() output in a fixed buffer and flags an overflow.",
+  "keywords": "stream, buffer, memory, print, parse",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arkhipenko/arduino-BufferStream.git"
+  },
+  "authors": [
+    {
+      "name": "Boot&Work Corp. S.L. (Industrial Shields)"
+    },
+    {
+      "name": "Anatoli Arkhipenko",
+      "email": "arkhipenko@hotmail.com",
+      "maintainer": true
+    }
+  ],
+  "license": "LGPL-3.0-or-later",
+  "homepage": "https://github.com/arkhipenko/arduino-BufferStream",
+  "frameworks": "arduino",
+  "platforms": "*",
+  "headers": "BufferStream.h",
+  "export": {
+    "exclude": [
+      "tests",
+      ".github"
+    ]
+  }
+}

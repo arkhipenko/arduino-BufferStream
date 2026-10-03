@@ -5,7 +5,9 @@
 
 class ReadBufferStream : public BaseBufferStream {
 	public:
-		explicit ReadBufferStream(void *buff, size_t len);
+		// The buffer is never written. The stream timeout is set to 0, because a buffer
+		// cannot receive more data (readBytes() and parseInt() return at the end at once).
+		explicit ReadBufferStream(const void *buff, size_t len);
 
 	public:
 		virtual int available();

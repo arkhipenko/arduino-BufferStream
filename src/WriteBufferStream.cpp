@@ -1,15 +1,45 @@
+#include <limits.h>
+#include <string.h>
+
 #include "WriteBufferStream.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-WriteBufferStream::WriteBufferStream(void *buff, size_t len) : BaseBufferStream(buff, len) {
+WriteBufferStream::WriteBufferStream(void *buff, size_t len) : BaseBufferStream(buff, len), used(0) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 size_t WriteBufferStream::write(uint8_t value) {
 	if (len == 0) {
+		setWriteError();
 		return 0;
 	}
 	*buff++ = value;
 	--len;
+	++used;
 	return 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+size_t WriteBufferStream::write(const uint8_t *buffer, size_t size) {
+	size_t n = size < len ? size : len;
+	if (n > 0) {
+		memcpy(buff, buffer, n);
+		buff += n;
+		len -= n;
+		used += n;
+	}
+	if (n < size) {
+		setWriteError();
+	}
+	return n;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+int WriteBufferStream::availableForWrite() {
+	return len > (size_t) INT_MAX ? INT_MAX : (int) len;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+size_t WriteBufferStream::written() const {
+	return used;
 }

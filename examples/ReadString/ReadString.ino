@@ -1,4 +1,4 @@
-// BufferStream library example
+// BufferStream library example: read a String through the Stream interface
 // by Industrial Shields
 
 #include <BufferStream.h>
@@ -7,7 +7,7 @@ String data("This is the string!");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void setup() {
-  // Create stream from data
+  // Create stream from data (a const buffer is accepted as is)
   ReadBufferStream stream(data.c_str(), data.length());
 
   // Print data from the stream
